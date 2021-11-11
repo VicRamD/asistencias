@@ -1,0 +1,23 @@
+{% load static %}
+{% block titulo %}Crear Persona{% endblock %}
+
+{% block contenido %}
+<form method="POST">
+    <label for="nombre_completo">Nombre Completo</label>
+    <input type="text" id="nombre_completo" name="nombre_completo">
+    <br>
+    <label for="dni">DNI</label>
+    <input type="number" id="dni" name="dni">
+    <br>
+    <select name="sexo">
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+    </select>
+    <br>
+    <label for="domicilio">Nombre Completo</label>
+    <input type="text" id="domicilio" name="domicilio">
+
+    <input type="submit">
+</form>
+{% endblock %}
+

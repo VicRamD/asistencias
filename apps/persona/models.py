@@ -28,3 +28,14 @@ class EstadoSalud(models.Model):
     posee_desnutricion = models.BooleanField(null=True)
     observaciones = models.TextField(blank=True)
 
+class CuentaBancaria(models.Model):
+    BANCOS = [
+        ('BNA','Banco Nación Argentina'),
+        ('BBVA', 'Banco Frances'),
+        ('MACRO', 'Banco Macro'),
+    ]
+    numero_cuenta = models.IntegerField(primary_key=True)
+    cbu = models.IntegerField(unique=True, max_length=22)
+    alias = models.CharField(max_length=50,unique=True)
+    banco_emisor = models.CharField(max_length=30, choices=BANCOS)
+    persona = models.OneToOneField(Persona, on_delete=models.CASCADE)

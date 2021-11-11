@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}
+{% block titulo %}Lista de Cuentas registradas{% endblock %}
+
+{% block contenido %}
+<h1>Persona registradas - Cuentasable</h1>
+<table>
+        <thead>
+            <tr>
+                <th>DNI</th>
+                <th>Nombre Completo</th>
+                <th>N° Cuenta</th>
+            </tr>
+        </thead>
+        <tbody>
+        <!-- recorre la colección de cuentas que estan registradas a nombre de personas y
+         deja los datos en la tabla -->
+            {% for cuenta in cuentasResgistradas %}
+                <tr>
+                    <td>{{cuenta.persona.dni}}</td>
+                    <td>{{cuenta.persona.nombre_completo}}</td>
+                    <td>{{cuenta.numero_cuenta}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% load static %}
+
+{% block titulo %}Creación de cuenta{% endblock %}
+
+{% block contenido %}
+    <h1>Creación de cuenta</h1>
+    <form method="post">
+        <!-- recorre la lista de campos del modelo del formulario para renderizarlo y mostrarlo -->
+        {% for campo in form %}
+        <div class="campo">
+            {{campo.errors}}
+            {{campo.label_tag}}{{campo}}
+        </div>
+        <br>
+        {% endfor %}
+        {% csfr_token %}
+        <input type="submit" value="Guardar datos">
+    </form>
+{% endblock %}
